@@ -1,4 +1,5 @@
 var http = require('http');
+var https = require('https');
 var fs = require('fs');
 var formidable = require("formidable");
 var util = require('util');
@@ -73,7 +74,7 @@ function createHootsuiteTeamMember(fields) {
 
   var options = {
     "method": "POST",
-    "hostname": "https//apis.hootsuite.com",
+    "hostname": "apis.hootsuite.com",
     "port": null,
     "path": "/v1/members",
     "headers": {
@@ -83,7 +84,7 @@ function createHootsuiteTeamMember(fields) {
     }
   };
 
-  var req = http.request(options, function (res) {
+  var req = https.request(options, function (res) {
     var chunks = [];
 
     res.on("data", function (chunk) {
